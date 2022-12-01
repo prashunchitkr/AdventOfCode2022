@@ -10,22 +10,12 @@ export const Day1 = () => {
   fs.readFile(path.join(__dirname, "input.txt"), "utf8", (err, data) => {
     if (err) throw err;
     const parsed = data
-      .split("\n")
-      .reduce<number[]>(
-        (acc, curr) => {
-          if (curr === "") return [...acc, -1];
-          if (acc[acc.length - 1] === -1) return [...acc, parseInt(curr)];
-          return [
-            ...acc.slice(0, acc.length - 1),
-            acc[acc.length - 1] + parseInt(curr),
-          ];
-        },
-        [-1]
-      )
+      .split("\n\n")
+      .map(p => p.split('\n').map(l => parseInt(l)).flat())
+      .map(p => p.reduce((a, b) => a + b, 0))
       .sort((a, b) => b - a);
-    console.log(`Part 1: ${parsed[0]}`);
-    console.log(
-      `Part 2: ${parsed.slice(0, 3).reduce((acc, curr) => acc + curr, 0)}`
-    );
+
+    console.log("First part: ", parsed[0]);
+    console.log("Second part: ", parsed[0] + parsed[1] + parsed[2]);
   });
 };
