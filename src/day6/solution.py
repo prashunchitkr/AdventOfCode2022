@@ -16,6 +16,7 @@ def subroutine(data: str, buffer_len: int) -> int:
 
         if len(set(buffer)) == len(buffer):
             return i+1
+    return -1
 
 
 def solution1():

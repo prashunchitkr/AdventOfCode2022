@@ -4,11 +4,12 @@ from day3 import Day3
 from day4 import Day4
 from day5 import Day5
 from day6 import Day6
+from day7 import Day7
 
 print("Enter day number for solution: ")
 day = input()
 
-if not day.isnumeric() or int(day) < 1 or int(day) > 6:
+if not day.isnumeric() or int(day) < 1 or int(day) > 7:
     print("Invalid day number")
     exit(1)
 
